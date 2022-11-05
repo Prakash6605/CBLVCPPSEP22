@@ -2,10 +2,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+template <typename T>
 class MyVector{
 
 public:
-	int *arr;
+	T *arr;
 	int cs;
 	int mx;
 
@@ -13,12 +15,12 @@ public:
 	MyVector(int max_size = 2){
 		cs = 0 ;
 		mx = max_size;
-		arr = new int[mx];
+		arr = new T[mx];
 	}
 
 	// push_back
 
-	void push_back(int data){
+	void push_back(T data){
 		// when cs < ms
 		// arr[cs] = data;
 		// cs++;
@@ -28,10 +30,10 @@ public:
 			// copy old values into newly created memory block
 			// delete the old array(smaller sized block)
 		if( cs == mx ){
-			int *oldArr = arr;
+			T *oldArr = arr;
 			int oldmx = mx;
 
-			arr = new int[mx*2];
+			arr = new T[mx*2];
 			mx = 2 * mx ;
 
 			for(int i = 0 ; i < oldmx ; i++){
@@ -81,18 +83,33 @@ int main(){
 
 	// vector<char> vc;
 
-	MyVector v;
+	// MyVector<int> v;
 
-	v.push_back(1);
-	v.push_back(2);
-	v.push_back(3);
+	// v.push_back(1);
+	// v.push_back(2);
+	// v.push_back(3);
+
+	// cout << v.size() << " " << v.capacity() << endl;
+
+	// // cout << v[0] << " " ;
+
+	// for(int i = 0 ; i < v.size() ; i++){
+	// 	cout << v[i] << " " ;
+	// }
+
+
+	MyVector<char> v;
+
+	v.push_back('1');
+	v.push_back('2');
+	v.push_back('3');
 
 	cout << v.size() << " " << v.capacity() << endl;
 
 	// cout << v[0] << " " ;
 
 	for(int i = 0 ; i < v.size() ; i++){
-		cout << v[i] << " " ;
+		cout << (char)v[i] << " " ;
 	}
 
 
@@ -103,3 +120,9 @@ int main(){
 
 	return 0;
 }
+
+// https://leetcode.com/problems/palindrome-partitioning/
+// https://leetcode.com/problems/combination-sum/
+// https://leetcode.com/problems/combination-sum-ii/
+// https://leetcode.com/problems/combinations/
+// https://leetcode.com/problems/combination-sum/
